@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "suZaDG6ecAOfWDeVmXfqmQkGoBDfmelMco5+EEU/tsWoGVYEPgAoG4M6PwD+79N6WLrqE3xiLOgkuyC0cXSfIg==",
+  "success": true,
+  "projectFilePath": "D:\\coding\\CSharp\\Udemy\\DotNet Microservice\\Shopping\\Shopping.Client\\Shopping.Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wlsn_\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+  ],
+  "logs": []
+}
