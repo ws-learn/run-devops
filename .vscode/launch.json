@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Shopping.API",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Shopping/Shopping.API/Shopping.API.csproj"
+        },
+        {
+            "name": "Shopping.Client",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Shopping/Shopping.Client/Shopping.Client.csproj"
+        },
+        {
+            "name": "Containers: .NET Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "netCore": {
+                "appProject": "${workspaceFolder}/Shopping/Shopping.Client/Shopping.Client.csproj"
+            }
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Shopping API and Client",
+            "configurations": ["Shopping.API","Shopping.Client"]
+        }
+    ]
+}

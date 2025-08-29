@@ -1,5 +1,5 @@
-﻿namespace Shopping.Client.Models
-{
+namespace Shopping.Client.Models;
+
     public class Product
     {
         public string Id { get; set; }
@@ -9,4 +9,3 @@
         public string  ImageFile{ get; set; }
         public decimal Price { get; set; }
     }
-}
