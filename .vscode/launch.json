@@ -32,19 +32,10 @@
                 "appProject": "${workspaceFolder}/Shopping/Shopping.Client/Shopping.Client.csproj"
             }
         },
-        {
-            "name": "Containers: .NET Launch",
-            "type": "docker",
-            "request": "launch",
-            "preLaunchTask": "docker-run: debug",
-            "netCore": {
-                "appProject": "${workspaceFolder}/Shopping/Shopping.Client/Shopping.Client.csproj"
-            }
-        }
     ],
     "compounds": [
         {
-            "name": "Shopping API and Client",
+            "name": "Multiple Projects",
             "configurations": ["Shopping.API","Shopping.Client"]
         },
         {

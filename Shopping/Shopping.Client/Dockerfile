@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 5001
 
+#listening port inside the container
 ENV ASPNETCORE_URLS=http://+:5001
 
 USER app

@@ -4,7 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient("ShoppingAPIClient", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5000/");
+    // client.BaseAddress = new Uri("http://localhost:5002/");
+    client.BaseAddress = new Uri(builder.Configuration["ShoppingAPIUrl"] ??
+    throw new Exception("ShoppingAPIUrl is not defined. "));
 });
 
 var app = builder.Build();
