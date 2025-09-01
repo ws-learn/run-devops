@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoppingapi-deployment
+  labels:
+    app: shoppingapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shoppingapi
+  template:
+    metadata:
+      labels:
+        app: shoppingapi
+    spec:
+      containers:
+        - name: shoppingapi
+          image: wlsnting94/shoppingapi:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5002
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: DatabaseSettings__ConnectionString
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-configmap
+                  key: connectionstring
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: 250m
+            limits:
+              memory: "120Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shoppingapi-service
+spec:
+  type: NodePort #use NodePort service to test application in local computer
+  selector:
+    app: shoppingapi
+  ports:
+    - port: 5002
+      targetPort: 5002
+      nodePort: 31000 #default port for NodePort is 31000
