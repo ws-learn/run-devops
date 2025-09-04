@@ -1,0 +1,20 @@
+================================
+Azure container registry command
+================================
+az acr login --name shoppingacrtws --resource-group shoppingResourceGroup
+az acr list --resource-group shoppingResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+az aks show --resource-group shoppingResourceGroup --name shoppingCluster --query kubernetesVersion --output table
+
+================================
+Docker command
+================================
+docker tag shoppingapi:latest shoppingacrtws.azurecr.io/shoppingapi:v1
+docker push shoppingacrtws.azurecr.io/shoppingclient:v1
+
+================================
+Kubernetes command
+================================
+kubectl apply -f ./shopping-api.yaml
+kubectl exec -it shoppingclient-deployment-6d96b48b55-4dpsh -- printenv | grep ASPNETCORE_URLS
+kubectl get hpa
+kubectl get pods

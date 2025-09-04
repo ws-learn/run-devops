@@ -9,6 +9,7 @@ services:
     build:
       context: .
       dockerfile: Shopping/Shopping.API/Dockerfile
+    platform: linux/amd64 # required to avoid exec format error
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=mongodb://shoppingdb:27017"
@@ -23,12 +24,13 @@ services:
     build:
       context: .
       dockerfile: Shopping/Shopping.Client/Dockerfile
+    platform: linux/amd64 # required to avoid exec format error
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ShoppingAPIUrl=http://shoppingapi:5002"
     depends_on:
       - shopping.db
-      
+
   shopping.db:
     container_name: shoppingdb
     image: mongo:latest
