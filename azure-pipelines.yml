@@ -51,8 +51,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
+    pool: Default
     environment: 'wslearnrundevops.default'
     strategy:
       runOnce:
