@@ -8,8 +8,10 @@ az aks show --resource-group shoppingResourceGroup --name shoppingCluster --quer
 ================================
 Docker command
 ================================
+docker images
 docker tag shoppingapi:latest shoppingacrtws.azurecr.io/shoppingapi:v1
-docker push shoppingacrtws.azurecr.io/shoppingclient:v1
+docker tag shoppingclient:latest shoppingacrtws.azurecr.io/shoppingclient:v3
+docker push shoppingacrtws.azurecr.io/shoppingclient:v3
 
 ================================
 Kubernetes command
