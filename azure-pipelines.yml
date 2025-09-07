@@ -42,7 +42,7 @@ stages:
         docker buildx create --use
         docker buildx build \
           --platform linux/amd64 \
-          -t $(imageRepository):$(tag) \
+          -t $(containerRegistry)/$(imageRepository):$(tag) \
           -f $(dockerfilePath) \
           $(Build.SourcesDirectory) \
           --push 
