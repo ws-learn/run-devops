@@ -49,7 +49,7 @@ public class ProductContext
                 new Product()
                 {
                     Name = "Huawei Plus",
-                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
+                    Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless. =)",
                     ImageFile = "product-3.png",
                     Price = 650.00M,
                     Category = "White Appliances"
