@@ -8,7 +8,7 @@ spec:
     kind: Deployment
     name: shoppingapi-deployment
   minReplicas: 2
-  maxReplicas: 2
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 50 
 ---
 apiVersion: autoscaling/v1
@@ -21,5 +21,5 @@ spec:
     kind: Deployment
     name: shoppingclient-deployment
   minReplicas: 2
-  maxReplicas: 2
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 50 

@@ -83,6 +83,7 @@ stages:
               action: deploy
               manifests: |
                 $(Pipeline.Workspace)/aks/shopping-api.yaml
+                $(Pipeline.Workspace)/aks/shopping-api-hpa.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
