@@ -31,18 +31,24 @@ stages:
     pool: Default
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
+      displayName: login to ACR
+      inputs: 
+        command: login
         containerRegistry: $(dockerRegistryServiceConnection)
-        buildContext: $(Build.SourcesDirectory)
-        arguments: '--platform linux/amd64'
-        tags: |
-          $(tag)
 
-    - upload: manifests
+    # Build docker Image using docker buildx
+    - script: |
+        docker run --privileged --rm tonistiigi/binfmt --install all
+        docker buildx create --use
+        docker buildx build \
+          --platform linux/amd64 \
+          -t $(imageRepository):$(tag) \
+          -f $(dockerfilePath) \
+          $(Build.SourcesDirectory) \
+          --push 
+      displayName: Build and Push image to container registry
+
+    - publish: manifests
       artifact: manifests
 
 - stage: Deploy
