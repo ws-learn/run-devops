@@ -38,6 +38,7 @@ stages:
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         buildContext: $(Build.SourcesDirectory)
+        arguments: '--platform linux/amd64'
         tags: |
           $(tag)
 
