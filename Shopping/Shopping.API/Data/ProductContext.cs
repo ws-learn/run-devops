@@ -40,7 +40,7 @@ public class ProductContext
                 },
                 new Product()
                 {
-                    Name = "Samsung 10",
+                    Name = "Samsung 11",
                     Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless. =)",
                     ImageFile = "product-2.png",
                     Price = 840.00M,
