@@ -83,7 +83,7 @@ stages:
               action: deploy
               manifests: |
                 $(Pipeline.Workspace)/aks/shopping-api.yaml
-                $(Pipeline.Workspace)/aks/shopping-api-hpa.yaml
+                $(Pipeline.Workspace)/aks/shopping-api-autoscale.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |

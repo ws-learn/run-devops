@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: shoppingapi-hpa
@@ -7,11 +7,17 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: shoppingapi-deployment
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 50 
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
 ---
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: shoppingclient-hpa
@@ -20,6 +26,12 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: shoppingclient-deployment
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 50 
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
