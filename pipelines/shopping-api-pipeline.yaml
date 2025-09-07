@@ -10,7 +10,6 @@ trigger:
     include:
     - Shopping/Shopping.API/*
     - aks/shopping-api.yaml
-    - aks/shopping-autoscale.yaml
 
 resources:
 - repo: self
